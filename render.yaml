@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: nse-sector-heatmap
+    name: nseheatmap
     runtime: python
     # Starter (paid) plan: the backend polls NSE every 10 s during market hours and
     # records its own volume history; free instances sleep when idle and would stop it.
