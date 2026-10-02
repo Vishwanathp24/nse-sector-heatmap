@@ -1,0 +1,8 @@
+node_modules/
+frontend/dist-netlify/
+backend/data/
+backend/.access_key
+__pycache__/
+*.pyc
+.DS_Store
+tools/

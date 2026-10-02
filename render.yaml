@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: nse-sector-heatmap
+    runtime: python
+    # Starter (paid) plan: the backend polls NSE every 10 s during market hours and
+    # records its own volume history; free instances sleep when idle and would stop it.
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/orb
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: PYTHON_VERSION
+        value: 3.12.6
+    disk:
+      name: market-data
+      mountPath: /var/data
+      sizeGB: 1
